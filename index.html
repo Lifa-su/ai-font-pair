@@ -414,6 +414,83 @@ document.getElementById('bodyText').addEventListener('input', () => {
 renderGrid();
 selectPair(0);
 </script>
+
+<!-- Pro Features Section -->
+<style>
+.pro-section{max-width:1200px;margin:0 auto 2rem;padding:0 1.5rem}
+.pro-section h2{font-size:1rem;color:var(--text2);margin-bottom:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:8px}
+.pro-section h2::before{content:'';width:3px;height:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:2px}
+.pro-wrapper{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .2s}
+.pro-wrapper:hover{transform:translateY(-2px)}
+.pro-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;padding:2rem;filter:blur(5px);pointer-events:none;user-select:none}
+.pro-card{background:var(--surface);border-radius:var(--radius);padding:1.5rem;border:1px solid rgba(255,255,255,.06)}
+.pro-card-icon{font-size:2rem;margin-bottom:.75rem}
+.pro-card h3{font-size:1.1rem;color:#fff;margin-bottom:.5rem;font-weight:700}
+.pro-card p{font-size:.9rem;color:var(--text2);line-height:1.6}
+.pro-overlay{position:absolute;inset:0;background:rgba(22,33,62,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;border-radius:var(--radius);border:2px dashed rgba(233,69,96,.3)}
+.pro-overlay .lock-icon{font-size:2.5rem}
+.pro-overlay .lock-text{font-size:1.2rem;font-weight:700;color:#fff;letter-spacing:.02em}
+.pro-overlay .lock-sub{font-size:.85rem;color:var(--text2)}
+
+/* Modal */
+.pro-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.pro-modal-bg.open{display:flex}
+.pro-modal{background:var(--surface);border-radius:16px;padding:2.5rem;max-width:420px;width:90%;box-shadow:0 8px 40px rgba(0,0,0,.5);text-align:center;position:relative;border:1px solid rgba(255,255,255,.06)}
+.pro-modal h3{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:1.5rem}
+.pro-modal-features{text-align:left;margin-bottom:1.5rem}
+.pro-modal-features li{display:flex;align-items:start;gap:10px;padding:.55rem 0;font-size:.95rem;color:var(--text);line-height:1.5;list-style:none}
+.pro-modal-features li .check{color:#2ea043;font-weight:700;font-size:1.1rem;flex-shrink:0}
+.pro-modal-price{font-size:2rem;font-weight:800;color:var(--accent);margin-bottom:1.5rem}
+.pro-modal-price span{font-size:.9rem;font-weight:400;color:var(--text2);margin-left:4px}
+.pro-cta{display:inline-block;width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),#ff6b8a);border:none;border-radius:10px;color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all .2s;text-align:center}
+.pro-cta:hover{transform:scale(1.02);box-shadow:0 4px 20px rgba(233,69,96,.4)}
+.pro-later{display:inline-block;margin-top:1rem;background:none;border:none;color:var(--text2);font-size:.9rem;cursor:pointer;padding:6px 12px;transition:color .2s}
+.pro-later:hover{color:var(--text)}
+</style>
+
+<section class="pro-section">
+  <h2>Pro Features</h2>
+  <div class="pro-wrapper" onclick="document.getElementById('proModal').classList.add('open')">
+    <div class="pro-cards">
+      <div class="pro-card">
+        <div class="pro-card-icon">📤</div>
+        <h3>Custom Font Upload</h3>
+        <p>Upload your own .woff2, .ttf, or .otf files and preview pairings with any custom font.</p>
+      </div>
+      <div class="pro-card">
+        <div class="pro-card-icon">🎨</div>
+        <h3>Brand Font Packs</h3>
+        <p>50+ curated font sets for SaaS, editorial, e-commerce, and more — ready to use.</p>
+      </div>
+      <div class="pro-card">
+        <div class="pro-card-icon">⚡</div>
+        <h3>CSS Variables Export</h3>
+        <p>Export your pairings as CSS custom properties for seamless design-system integration.</p>
+      </div>
+    </div>
+    <div class="pro-overlay">
+      <div class="lock-icon">🔒</div>
+      <div class="lock-text">Pro Features</div>
+      <div class="lock-sub">Click to unlock</div>
+    </div>
+  </div>
+</section>
+
+<div class="pro-modal-bg" id="proModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="pro-modal">
+    <h3>Unlock Pro Features</h3>
+    <ul class="pro-modal-features">
+      <li><span class="check">✓</span>Custom Font Upload &amp; Preview</li>
+      <li><span class="check">✓</span>Brand Font Packs (50+ curated sets)</li>
+      <li><span class="check">✓</span>CSS Variables Export</li>
+    </ul>
+    <div class="pro-modal-price">$9 <span>one-time</span></div>
+    <a class="pro-cta" href="https://feifeicch.gumroad.com/l/ai-font-pair-pro" target="_blank" rel="noopener">Upgrade to Pro — $9</a>
+    <br>
+    <button class="pro-later" onclick="document.getElementById('proModal').classList.remove('open')">Maybe later</button>
+  </div>
+</div>
+
 <script src="https://alwingulla.com/88/tag.min.js" data-zone="130747" async data-cfasync="false"></script>
 </body>
 </html>
